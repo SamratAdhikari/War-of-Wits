@@ -1,0 +1,39 @@
+:root {
+    --text-color: #5e3d31;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    height: 100%;
+    line-height: 1;
+
+    color-scheme: light dark;
+    color: var(--text-color);
+    background-color: #f3f3e1;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    font-weight: 400;
+    font-synthesis: none;
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
+    font-size: 25px;
+}
+
+input,
+select,
+textarea {
+    color: var(--text-color);
+}
+
+.MuiInputBase-root,
+.MuiSelect-select,
+.MuiMenuItem-root,
+.MuiInputLabel-root {
+    color: var(--text-color);
+    font-weight: bold;
+}

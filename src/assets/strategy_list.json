@@ -1,0 +1,27 @@
+[
+    {
+        "id": 0,
+        "name": "Random",
+        "icon": ""
+    },
+    {
+        "id": 1,
+        "name": "Friedman",
+        "icon": ""
+    },
+    {
+        "id": 2,
+        "name": "Joss",
+        "icon": ""
+    },
+    {
+        "id": 3,
+        "name": "Tit4Tat",
+        "icon": ""
+    },
+    {
+        "id": 4,
+        "name": "TwoChances",
+        "icon": ""
+    }
+]

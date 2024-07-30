@@ -1,0 +1,16 @@
+.strategy-container {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    gap: 100px; /* Add space between the items */
+    margin: auto;
+}
+
+.sim-button {
+    padding: 0;
+}
+
+.sim-button-img {
+    width: 4rem;
+    height: 4rem;
+}
