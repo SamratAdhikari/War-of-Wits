@@ -1,17 +1,21 @@
 import Button from "@mui/material/Button";
 import Dropdown from "./Dropdown";
-import P5Canvas from "../P5Canvas/P5Canvas.jsx";
+import Sketch from "../Sketch/Sketch.jsx";
 import simIcon from "../../assets/images/swords.png";
 import { useState } from "react";
+
 import "./Simulation.css";
 
 const Simulation = () => {
     const [strategy1, setStrategy1] = useState("");
     const [strategy2, setStrategy2] = useState("");
+
     const [showCanvas, setShowCanvas] = useState(false);
 
     const handleSimulation = () => {
-        setShowCanvas(!showCanvas);
+        if (strategy1 && strategy2) {
+            setShowCanvas(!showCanvas);
+        }
     };
 
     return (
@@ -33,9 +37,7 @@ const Simulation = () => {
             </div>
 
             <div>
-                {showCanvas && (
-                    <P5Canvas strategy1={strategy1} strategy2={strategy2} />
-                )}
+                {showCanvas && <Sketch name1={strategy1} name2={strategy2} />}
             </div>
         </>
     );
