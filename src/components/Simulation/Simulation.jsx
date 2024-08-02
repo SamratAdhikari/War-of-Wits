@@ -9,7 +9,6 @@ import "./Simulation.css";
 const Simulation = () => {
     const [strategy1, setStrategy1] = useState("");
     const [strategy2, setStrategy2] = useState("");
-
     const [showCanvas, setShowCanvas] = useState(false);
 
     const handleSimulation = () => {
