@@ -3,12 +3,12 @@ import Dropdown from "./Dropdown";
 import Sketch from "../Sketch/Sketch.jsx";
 import simIcon from "../../assets/images/swords.png";
 import { useState } from "react";
-
 import "./Simulation.css";
 
 const Simulation = () => {
     const [strategy1, setStrategy1] = useState("");
     const [strategy2, setStrategy2] = useState("");
+    
     const [showCanvas, setShowCanvas] = useState(false);
 
     const handleSimulation = () => {
