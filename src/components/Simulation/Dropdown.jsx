@@ -36,16 +36,16 @@ const Dropdown = ({ label, onChange }) => {
                     onChange={handleStrategyChange}
                     sx={{
                         "& .MuiSelect-select": {
-                            color: "#5e3d31", // Color for the selected value
-                            fontWeight: "bold", // Bold font for the selected value
+                            color: "#5e3d31",
+                            fontWeight: "bold",
                         },
                         "& .MuiMenuItem-root": {
-                            color: "#5e3d31", // Color for menu items
-                            fontWeight: "bold", // Bold font for menu items
+                            color: "#5e3d31",
+                            fontWeight: "bold",
                         },
                         "& .MuiInputBase-root": {
-                            color: "#5e3d31", // Color for the input field
-                            fontWeight: "bold", // Bold font for the input field
+                            color: "#5e3d31",
+                            fontWeight: "bold",
                         },
                     }}
                 >
