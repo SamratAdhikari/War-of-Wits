@@ -46,8 +46,6 @@ const Dropdown = ({ label, onChange }) => {
                         "& .MuiInputBase-root": {
                             color: "#5e3d31",
                             fontWeight: "bold",
-
-                            
                         },
                     }}
                 >
