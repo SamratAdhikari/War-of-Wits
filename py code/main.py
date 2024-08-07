@@ -10,7 +10,6 @@ def simulate():
 	points1 = 0
 	points2 = 0
 
-
 	player1.append(True)
 	player2.append(getRandom())
 
