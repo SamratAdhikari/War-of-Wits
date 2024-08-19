@@ -37,6 +37,7 @@ def simulate():
 		print('Player1', choice1, end='\t')
 		print('Random', choice2)
 
+
 	print('Player1 score:', points1)
 	print('Player2 score:', points2)
 
