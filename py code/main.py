@@ -39,7 +39,6 @@ def simulate():
 
 
 
-
 	print('Player1 score:', points1)
 	print('Player2 score:', points2)
 
