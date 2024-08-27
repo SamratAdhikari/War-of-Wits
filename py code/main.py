@@ -38,7 +38,6 @@ def simulate():
 		print('Random', choice2)
 
 
-
 	print('Player1 score:', points1)
 	print('Player2 score:', points2)
 
