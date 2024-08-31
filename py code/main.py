@@ -41,7 +41,6 @@ def simulate():
 	print('Player1 score:', points1)
 	print('Player2 score:', points2)
 
-	
 
 if __name__ == '__main__':
 	simulate()
