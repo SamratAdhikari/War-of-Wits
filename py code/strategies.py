@@ -68,7 +68,6 @@ def getPoints(player1: bool, player2: bool):
 	return x, y
 
 	
-
 if __name__ == '__main__':
 	pass
 
