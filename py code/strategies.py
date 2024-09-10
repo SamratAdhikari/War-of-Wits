@@ -17,7 +17,6 @@ def getFriedman(oppChoice: bool):
 	returns false if the opp chooses false even once
 	'''
 	global friedchoice
-
 	if not oppChoice:
 		friedchoice = False
 
