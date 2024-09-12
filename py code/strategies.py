@@ -47,7 +47,6 @@ def getTitForTat(oppChoice: bool):
 	return oppChoice
 
 
-
 def getPoints(player1: bool, player2: bool):
 
 	# Scoring based on the payoff matrix

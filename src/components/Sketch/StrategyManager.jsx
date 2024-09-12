@@ -4,7 +4,9 @@ class StrategyManager {
     }
 
     getFriedman() {
-        return !this.oppChoices.some((item) => item === false);
+        const choice = !this.oppChoices.some((item) => item === false);
+        console.log(choice);
+        return choice;
     }
 
     getJoss() {
@@ -13,8 +15,7 @@ class StrategyManager {
     }
 
     getRandom() {
-        // return Math.random() >= 0.5;
-        return false;
+        return Math.random() >= 0.5;
     }
 
     getTwoChances() {
