@@ -5,17 +5,22 @@ class StrategyManager {
 
     getFriedman() {
         const choice = !this.oppChoices.some((item) => item === false);
-        console.log(choice);
+        console.log("fried choice", choice);
         return choice;
     }
 
     getJoss() {
         const currChoice = this.oppChoices.at(-1);
-        return currChoice ? Math.random() >= 0.1 : false;
+        const choice = currChoice ? Math.random() >= 0.1 : false;
+
+        console.log("Joss choice", choice);
+        return choice;
     }
 
     getRandom() {
-        return Math.random() >= 0.5;
+        const choice = Math.random() >= 0.5;
+        console.log("Random choice", choice);
+        return choice;
     }
 
     getTwoChances() {
@@ -24,8 +29,7 @@ class StrategyManager {
     }
 
     getTit4Tat() {
-        // return this.oppChoices.at(-1);
-        return true;
+        return this.oppChoices.at(-1);
     }
 
     getPoints(strategy1, strategy2) {

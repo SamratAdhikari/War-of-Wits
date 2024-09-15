@@ -1,16 +1,14 @@
 import PropTypes from "prop-types";
 import { ReactP5Wrapper } from "@p5-wrapper/react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import StrategyManager from "./StrategyManager";
 import strategyList from "../../assets/strategy_list.json";
 import "./Sketch.css";
 
-const bindStrategyFunction = (strategyName, choices) => {
+const getStrategyFunction = (strategyName, choices) => {
     const strategy = strategyList.find((s) => s.name === strategyName);
     const funcName = strategy.func;
-
     const strategyManager = new StrategyManager(choices);
-
     return strategyManager[funcName].bind(strategyManager);
 };
 
@@ -28,9 +26,6 @@ const Sketch = ({ name1, name2 }) => {
     const [strategyChoices2, setStrategyChoices2] = useState([true]);
     const [currentIteration, setCurrentIteration] = useState(0);
 
-    const strategyFunc1 = useRef(bindStrategyFunction(name1, strategyChoices2));
-    const strategyFunc2 = useRef(bindStrategyFunction(name2, strategyChoices1));
-
     useEffect(() => {
         const interval = setInterval(() => {
             if (currentIteration >= ITERATIONS) {
@@ -38,8 +33,12 @@ const Sketch = ({ name1, name2 }) => {
                 return;
             }
 
-            const newChoice1 = strategyFunc1.current();
-            const newChoice2 = strategyFunc2.current();
+            // Recreate the strategy functions with updated choices on each iteration
+            const strategyFunc1 = getStrategyFunction(name1, strategyChoices2);
+            const strategyFunc2 = getStrategyFunction(name2, strategyChoices1);
+
+            const newChoice1 = strategyFunc1();
+            const newChoice2 = strategyFunc2();
 
             setStrategyChoices1((prev) => [...prev, newChoice1]);
             setStrategyChoices2((prev) => [...prev, newChoice2]);
@@ -47,7 +46,7 @@ const Sketch = ({ name1, name2 }) => {
         }, delay);
 
         return () => clearInterval(interval);
-    }, [currentIteration]);
+    }, [currentIteration, name1, name2, strategyChoices1, strategyChoices2]);
 
     const sketch1 = (p) => {
         let previousIteration = 0;
