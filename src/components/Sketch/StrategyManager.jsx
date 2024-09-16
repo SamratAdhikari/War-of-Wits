@@ -5,7 +5,6 @@ class StrategyManager {
 
     getFriedman() {
         const choice = !this.oppChoices.some((item) => item === false);
-        console.log("fried choice", choice);
         return choice;
     }
 
@@ -13,13 +12,11 @@ class StrategyManager {
         const currChoice = this.oppChoices.at(-1);
         const choice = currChoice ? Math.random() >= 0.1 : false;
 
-        console.log("Joss choice", choice);
         return choice;
     }
 
     getRandom() {
         const choice = Math.random() >= 0.5;
-        console.log("Random choice", choice);
         return choice;
     }
 
@@ -32,16 +29,16 @@ class StrategyManager {
         return this.oppChoices.at(-1);
     }
 
-    getPoints(strategy1, strategy2) {
+    getPoints(strategyChoice1, strategyChoice2) {
         let x, y;
 
-        if (strategy1 && strategy2) {
+        if (strategyChoice1 && strategyChoice2) {
             x = 3;
             y = 3;
-        } else if (strategy1 && !strategy2) {
+        } else if (strategyChoice1 && !strategyChoice2) {
             x = 0;
             y = 5;
-        } else if (!strategy1 && strategy2) {
+        } else if (!strategyChoice1 && strategyChoice2) {
             x = 5;
             y = 0;
         } else {

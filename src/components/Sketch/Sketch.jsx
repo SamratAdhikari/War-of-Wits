@@ -3,6 +3,7 @@ import { ReactP5Wrapper } from "@p5-wrapper/react";
 import { useState, useEffect } from "react";
 import StrategyManager from "./StrategyManager";
 import strategyList from "../../assets/strategy_list.json";
+import Graph from "../Graph/Graph";
 import "./Sketch.css";
 
 const getStrategyFunction = (strategyName, choices) => {
@@ -24,6 +25,10 @@ const Sketch = ({ name1, name2 }) => {
 
     const [strategyChoices1, setStrategyChoices1] = useState([true]);
     const [strategyChoices2, setStrategyChoices2] = useState([true]);
+
+    const [points1, setPoints1] = useState([]);
+    const [points2, setPoints2] = useState([]);
+
     const [currentIteration, setCurrentIteration] = useState(0);
 
     useEffect(() => {
@@ -39,6 +44,16 @@ const Sketch = ({ name1, name2 }) => {
 
             const newChoice1 = strategyFunc1();
             const newChoice2 = strategyFunc2();
+
+            const strategyManager = new StrategyManager();
+
+            const { x: newPoint1, y: newPoint2 } = strategyManager.getPoints(
+                strategyChoices1.at(-1),
+                strategyChoices2.at(-1)
+            );
+
+            setPoints1((prev) => [...prev, newPoint1]);
+            setPoints2((prev) => [...prev, newPoint2]);
 
             setStrategyChoices1((prev) => [...prev, newChoice1]);
             setStrategyChoices2((prev) => [...prev, newChoice2]);
@@ -85,20 +100,30 @@ const Sketch = ({ name1, name2 }) => {
     };
 
     return (
-        <div className="main-container">
-            <div className="canvas-container">
-                <div className="strategy-name">{name1}</div>
-                <div className="strategy-squares">
-                    <ReactP5Wrapper sketch={sketch1} />
+        <>
+            <div className="main-container">
+                <div className="canvas-container">
+                    <div className="strategy-name">{name1}</div>
+                    <div className="strategy-squares">
+                        <ReactP5Wrapper sketch={sketch1} />
+                    </div>
+                </div>
+                <div className="canvas-container">
+                    <div className="strategy-name">{name2}</div>
+                    <div className="strategy-squares">
+                        <ReactP5Wrapper sketch={sketch2} />
+                    </div>
                 </div>
             </div>
-            <div className="canvas-container">
-                <div className="strategy-name">{name2}</div>
-                <div className="strategy-squares">
-                    <ReactP5Wrapper sketch={sketch2} />
-                </div>
-            </div>
-        </div>
+
+            {/* Render Graph component */}
+            <Graph
+                strategy1={name1}
+                strategy2={name2}
+                points1={points1}
+                points2={points2}
+            />
+        </>
     );
 };
 
